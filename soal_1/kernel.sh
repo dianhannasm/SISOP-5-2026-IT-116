@@ -17,7 +17,7 @@ make defconfig
 
 make CC=gcc-12 HOSTCC=gcc-12 -j$(nproc) || exit 1
 
-cp arch/x86/boot/bzImage ../osboot/vmlinuz || exit 1
+cp arch/x86/boot/bzImage ../osboot/bzImage || exit 1
 
 echo "Kernel berhasil dibuat"
 

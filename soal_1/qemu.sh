@@ -1,8 +1,8 @@
 #!/bin/bash
 
-case "$1" in
+case "$1 $2" in
 
---single)
+"-- single")
 qemu-system-x86_64 \
 -kernel osboot/bzImage \
 -initrd osboot/single.gz \
@@ -10,7 +10,7 @@ qemu-system-x86_64 \
 -nographic
 ;;
 
---multi)
+"-- multi")
 qemu-system-x86_64 \
 -kernel osboot/bzImage \
 -initrd osboot/multi.gz \
@@ -18,7 +18,7 @@ qemu-system-x86_64 \
 -nographic
 ;;
 
---all)
+"-- all")
 qemu-system-x86_64 \
 -cdrom osboot/farewell.iso \
 -boot d \
@@ -27,10 +27,9 @@ qemu-system-x86_64 \
 ;;
 
 *)
-echo "Pemakaian:"
-echo "./qemu.sh --single"
-echo "./qemu.sh --multi"
-echo "./qemu.sh --all"
+echo "./qemu.sh -- single"
+echo "./qemu.sh -- multi"
+echo "./qemu.sh -- all"
 ;;
 
 esac

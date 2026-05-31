@@ -28,6 +28,6 @@ EOF
 
 chmod +x init
 
-find . | cpio -o -H newc | gzip > ../osboot/initramfs.cpio.gz
+find . | cpio -o -H newc | gzip > ../osboot/single.gz
 
 echo "Single filesystem selesai"

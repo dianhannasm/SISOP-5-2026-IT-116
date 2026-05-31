@@ -39,7 +39,7 @@ echo "      FAREWELL PARTY"
 echo "================================="
 echo ""
 
-echo "Welcome, root"
+echo "Welcome, USER"
 
 exec /bin/sh
 EOF
