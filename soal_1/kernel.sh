@@ -15,6 +15,10 @@ cd linux-6.1.1
 make mrproper
 make defconfig
 
+scripts/config --enable CONFIG_FUSE_FS
+
+make olddefconfig
+
 make CC=gcc-12 HOSTCC=gcc-12 -j$(nproc) || exit 1
 
 cp arch/x86/boot/bzImage ../osboot/bzImage || exit 1

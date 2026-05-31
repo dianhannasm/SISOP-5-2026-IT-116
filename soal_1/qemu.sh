@@ -1,35 +1,38 @@
 #!/bin/bash
 
-case "$1 $2" in
+case "$1" in
 
-"-- single")
+--single)
 qemu-system-x86_64 \
 -kernel osboot/bzImage \
 -initrd osboot/single.gz \
 -append "console=ttyS0" \
--nographic
+-nographic \
+-nic user
 ;;
 
-"-- multi")
+--multi)
 qemu-system-x86_64 \
 -kernel osboot/bzImage \
 -initrd osboot/multi.gz \
 -append "console=ttyS0" \
--nographic
+-nographic \
+-nic user
 ;;
 
-"-- all")
+--all)
 qemu-system-x86_64 \
 -cdrom osboot/farewell.iso \
 -boot d \
 -m 512 \
--nographic
+-nographic \
+-nic user
 ;;
 
 *)
-echo "./qemu.sh -- single"
-echo "./qemu.sh -- multi"
-echo "./qemu.sh -- all"
+echo "Usage:"
+echo "./qemu.sh --single"
+echo "./qemu.sh --multi"
+echo "./qemu.sh --all"
 ;;
-
 esac
